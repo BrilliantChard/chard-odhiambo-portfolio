@@ -3,7 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Phone, Mail, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
-const Hero = () => {
+interface HeroProps {
+  onExploreMore: () => void;
+  showSections: boolean;
+}
+
+const Hero = ({ onExploreMore, showSections }: HeroProps) => {
   const [showExplore, setShowExplore] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -11,9 +16,11 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    element?.scrollIntoView({ behavior: 'smooth' });
+  const handleExploreMore = () => {
+    if (!showSections) {
+      onExploreMore();
+    }
+    setShowExplore(!showExplore);
   };
 
   return (
@@ -59,7 +66,7 @@ const Hero = () => {
         {/* Explore More Button */}
         <div className="mb-8">
           <Button 
-            onClick={() => setShowExplore(!showExplore)}
+            onClick={handleExploreMore}
             size="lg"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 flex items-center gap-2 mx-auto"
           >
@@ -69,7 +76,7 @@ const Hero = () => {
         </div>
 
         {/* Navigation Menu - Shows when Explore More is clicked */}
-        {showExplore && (
+        {showExplore && showSections && (
           <div className="animate-fade-in bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Explore My Portfolio</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
