@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Linkedin, Github, Facebook } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -48,6 +48,50 @@ const Contact = () => {
                     onClick={() => window.open('mailto:chardodhiambo@gmail.com')}
                   >
                     Send Email
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4 mt-8">
+              <Card className="border-2 border-blue-100 hover:border-blue-300 transition-colors">
+                <CardContent className="p-4 text-center">
+                  <Linkedin className="mx-auto mb-3 text-blue-600" size={28} />
+                  <h4 className="font-semibold text-gray-900 mb-2">LinkedIn</h4>
+                  <Button 
+                    className="w-full"
+                    variant="outline"
+                    onClick={() => window.open('https://www.linkedin.com/in/chard-odhiambo-57636136a', '_blank')}
+                  >
+                    Connect
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-gray-100 hover:border-gray-300 transition-colors">
+                <CardContent className="p-4 text-center">
+                  <Github className="mx-auto mb-3 text-gray-700" size={28} />
+                  <h4 className="font-semibold text-gray-900 mb-2">GitHub</h4>
+                  <Button 
+                    className="w-full"
+                    variant="outline"
+                    onClick={() => window.open('https://github.com/BrilliantChard', '_blank')}
+                  >
+                    View Code
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-blue-100 hover:border-blue-300 transition-colors">
+                <CardContent className="p-4 text-center">
+                  <Facebook className="mx-auto mb-3 text-blue-700" size={28} />
+                  <h4 className="font-semibold text-gray-900 mb-2">Facebook</h4>
+                  <Button 
+                    className="w-full"
+                    variant="outline"
+                    onClick={() => window.open('https://www.facebook.com/share/19cX1PWRc7/', '_blank')}
+                  >
+                    Follow
                   </Button>
                 </CardContent>
               </Card>
